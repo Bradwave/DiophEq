@@ -17,6 +17,7 @@ function setup() {
   calcLine();
 
   setSliders();
+  textFont('Georgia');
   
   noLoop();
 }
@@ -126,7 +127,6 @@ function drawFormula() {
   fill(255)
     .strokeWeight(0)
     .textSize(24);
-  textFont('Georgia');
   text(a + ' x + ' + b + ' y = ' + c, 20, 40);
   text('a: ', 20, 100);
   text('b: ', 20, 140);
