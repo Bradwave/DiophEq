@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Equazioni Diofantee</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+</head>
+
+<style>
+    .inc {
+        display: inline-block;
+        background-color: #00000000;
+        border: 0;
+        color: #ffffff;
+        font-size: 16pt;
+        font-family: 'Georgia';
+    }
+</style>
+
+<body style="display: block; padding: 0; margin: 0; overflow: hidden;">
+
+    <script src="utils/coordinateSystem.js"></script>
+    <script src="utils/controls.js"></script>
+    <script src="diopheq.js"></script>
+
+    <input id="aSlider" type="number" min="-100" max="100" value="17" step="1" class="inc"
+        onchange="updateEquation(this.value, 1)">
+    <input id="bSlider" type="number" min="-100" max="100" value="7" step="1" class="inc"
+        onchange="updateEquation(this.value, 2)">
+    <input id="cSlider" type="number" min="-100" max="100" value="77" step="1" class="inc"
+        onchange="updateEquation(this.value, 3)">
+
+</body>
+
+</html>
