@@ -5,7 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Equazioni Diofantee</title>
+
+    <link rel="icon" type="image/png" href="imgs/icon.png"/>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
 </head>
@@ -23,9 +28,10 @@
 
 <body style="display: block; padding: 0; margin: 0; overflow: hidden;">
 
-    <script src="utils/coordinateSystem.js"></script>
-    <script src="utils/controls.js"></script>
-    <script src="diopheq.js"></script>
+    <script src="js/utils/coordinateSystem.js"></script>
+    <script src="js/utils/controls.js"></script>
+    <script src="js/utils/math.js"></script>
+    <script src="js/diopheq.js"></script>
 
     <input id="aSlider" type="number" min="-100" max="100" value="17" step="1" class="inc"
         onchange="updateEquation(this.value, 1)">

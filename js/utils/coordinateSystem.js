@@ -15,7 +15,7 @@ const TOLLERANCE = 100;
 let borders;
 
 // GRID
-gridSkip = 1;
+gridSkip = 0;
 
 /**
  * Set the origin of the cartesian coordinate system according to the canvas size.
@@ -58,7 +58,7 @@ function updateScaling(newScale, c, mx, my) {
     }
 
     descaleFactor = 1.000000 / scaleFactor;
-    gridSkip = Math.floor(1 / scaleFactor * 30) + 1;
+    gridSkip = Math.min(Math.pow(2, Math.floor(descaleFactor * 20)), 16);
 }
 
 /**

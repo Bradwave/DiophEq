@@ -9,6 +9,13 @@ let sol = [];
 // SLIDERS
 let s1, s2, s3;
 
+// COLORS
+let colCheck;
+let fgColor = 255, bgColor = 0;
+let ht1Color = Math.abs(fgColor - 155);
+let ht2Color = Math.abs(fgColor - 135);
+let accentColor = 'red';
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   centerOrigin();
@@ -17,8 +24,10 @@ function setup() {
   calcLine();
 
   setSliders();
+  setCheckbox();
+
   textFont('Georgia');
-  
+
   noLoop();
 }
 
@@ -37,6 +46,27 @@ function setSliders() {
 
   s3 = select('#cSlider');
   s3.position(60, 160);
+}
+
+function setCheckbox() {
+  colCheck = createCheckbox(' Inverti colori', false);
+  colCheck.style("color: #ffffff")
+  colCheck.position(10, height - 30);
+  colCheck.changed(invertColors);
+}
+
+function invertColors() {
+  bgColor = [fgColor, fgColor = bgColor][0];
+  ht1Color = Math.abs(fgColor - 155);
+  ht2Color = Math.abs(fgColor - 135);
+
+  let textCol = colCheck.checked() ? "color: #000000" : "color: #ffffff";
+  s1.style(textCol);
+  s2.style(textCol);
+  s3.style(textCol);
+  colCheck.style(textCol);
+
+  redraw();
 }
 
 function updateEquation(value, id) {
@@ -70,7 +100,7 @@ function searchSolutions() {
 }
 
 function drawLine() {
-  stroke(255);
+  stroke(fgColor);
   strokeWeight(2);
 
   p1 = toScreenCoord(x1, y1);
@@ -80,13 +110,13 @@ function drawLine() {
 
 function drawSolutions() {
   sol.forEach(p => {
-    stroke('red');
+    stroke(accentColor);
     strokeWeight(10);
 
     let sp = toScreenCoord(p.x, p.y);
     point(sp.x, sp.y);
 
-    fill(255);
+    fill(fgColor);
     strokeWeight(0);
 
     textSize(14);
@@ -95,7 +125,7 @@ function drawSolutions() {
 }
 
 function drawAxis() {
-  stroke(100);
+  stroke(ht1Color);
   strokeWeight(1);
 
   // X AXIS
@@ -110,7 +140,7 @@ function drawAxis() {
 }
 
 function drawGrid() {
-  stroke(120);
+  stroke(ht2Color);
   strokeWeight(2);
 
   for (let i = Math.floor(borders.xMin); i < Math.floor(borders.xMax) + 1; i++) {
@@ -124,17 +154,17 @@ function drawGrid() {
 }
 
 function drawFormula() {
-  fill(255)
+  fill(fgColor)
     .strokeWeight(0)
     .textSize(24);
-  text(a + ' x + ' + b + ' y = ' + c, 20, 40);
+  text(a + ' x ' + (b >= 0 ? '+ ' : '- ') + Math.abs(b) + ' y = ' + c, 20, 40);
   text('a: ', 20, 100);
   text('b: ', 20, 140);
   text('c: ', 20, 180);
 }
 
 function draw() {
-  background(0);
+  background(bgColor);
   drawAxis();
   drawGrid();
   drawLine();
