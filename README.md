@@ -3,13 +3,11 @@
 
 This is a very simple web-based JavaScript application, available at [bradwave.github.io/DiophEq](https://bradwave.github.io/DiophEq).
 
-It is a interactive visualization and geometric interpretation of the _**Diophantine equation**_ <img src="https://render.githubusercontent.com/render/math?math=ax+by=c">.\
-The value of the _coefficients_ <img src="https://render.githubusercontent.com/render/math?math=a">, <img src="https://render.githubusercontent.com/render/math?math=b"> and <img src="https://render.githubusercontent.com/render/math?math=c"> can be changed by the user.
+It is a interactive visualization and the geometric interpretation of the _**Diophantine equation**_ _ax+by=c_.\
+The value of the _coefficients_ _a_, _b_ and _c_ can be changed by the user.
 
-The _line_ corresponding to <img src="https://render.githubusercontent.com/render/math?math=ax+by=c"> has equation
-
-<img src="https://render.githubusercontent.com/render/math?math=y = - \dfrac{a}{b} + \dfrac{c}{b}">
-
+The _line_ corresponding to _ax+by=c_ has equation
+_y = -(a/b)∙x + (c/b)_
 and it's represented on the Cartesian plane.
 
 _**Integer solutions**_ to the Diophantine equation are represented as _red dots_ on said line.
