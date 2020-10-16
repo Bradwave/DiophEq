@@ -11,21 +11,21 @@ let minZoom = 5;
 
 // BORDERS
 const GRID = { xMin: -100, xMax: 100, yMin: -100, yMax: 100 };
-const TOLLERANCE = 100;
+const TOLERANCE = 100;
 let borders;
 
 // GRID
 gridSkip = 0;
 
 /**
- * Set the origin of the cartesian coordinate system according to the canvas size.
+ * Set the origin of the Cartesian coordinate system according to the canvas size.
  */
 function centerOrigin() {
     // Set main origin.
     xOrigin = width * 0.5;
     yOrigin = height * 0.5;
 
-    // Set scale and descale factos.
+    // Set scale and descale factors.
     calcZoom();
     updateScaling(minZoom * 3, 0, 0, 0);
     prevScale = scaleFactor;
@@ -62,8 +62,8 @@ function updateScaling(newScale, c, mx, my) {
 }
 
 /**
- * Scale the system by a given amout, determined by the zoom increment.
- * @param {Number} c Zoom incremet
+ * Scale the system by a given amount, determined by the zoom increment.
+ * @param {Number} c Zoom increment
  */
 function scaleSystem(c) {
     c /= (-100);
@@ -97,7 +97,7 @@ function translateOrigin(x, y) {
 }
 
 /**
- * Converts screen coordinates to cartesian coordinats with origin in the center of the window.
+ * Converts screen coordinates to cartesian coordinates with origin in the center of the window.
  * @param {Number} x Coordinate x
  * @param {Number} y Coordinate y
  */
@@ -108,7 +108,7 @@ function toCartesian(x, y) {
 }
 
 /**
-* Converts cartesian coordiantes to screen coordinats with origin in the top left corner of the window.
+* Converts cartesian coordinates to screen coordinates with origin in the top left corner of the window.
 * @param {Number} x Coordinate x
 * @param {Number} y Coordinate y
 */

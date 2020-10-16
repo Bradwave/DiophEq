@@ -1,7 +1,6 @@
 // COEFFICIENTS & LINE
 let a = 17, b = 7, c = 77;
 let x1, x2, y1, y2;
-let p1, p2;
 
 // SOLUTIONS
 let sol = [];
@@ -37,6 +36,9 @@ function windowResized() {
   redraw();
 }
 
+/**
+ * Sets default behaviour of the sliders.
+ */
 function setSliders() {
   s1 = select('#aSlider');
   s1.position(60, 80);
@@ -48,6 +50,9 @@ function setSliders() {
   s3.position(60, 160);
 }
 
+/**
+ * Sets default behaviour of the checkbox.
+ */
 function setCheckbox() {
   colCheck = createCheckbox(' Inverti colori', false);
   colCheck.style("color: #ffffff")
@@ -55,6 +60,9 @@ function setCheckbox() {
   colCheck.changed(invertColors);
 }
 
+/**
+ * Inverts the colors used.
+ */
 function invertColors() {
   bgColor = [fgColor, fgColor = bgColor][0];
   ht1Color = Math.abs(fgColor - 155);
@@ -69,6 +77,11 @@ function invertColors() {
   redraw();
 }
 
+/**
+ * Updates the value of the coefficient of the Diophantine equation.
+ * @param {Number} value 
+ * @param {Number} id 
+ */
 function updateEquation(value, id) {
   a = id == 1 ? parseInt(value) : a;
   b = id == 2 ? parseInt(value) : b;
@@ -79,6 +92,9 @@ function updateEquation(value, id) {
   redraw();
 }
 
+/**
+ * Calculates the endpoints of the line defined by the Diophantine equation.
+ */
 function calcLine() {
   x1 = (- GRID.yMax * b + c) / a;
   x1 = x1 < GRID.xMin ? GRID.xMin : (x1 > GRID.xMax ? GRID.xMax : x1);
@@ -90,6 +106,10 @@ function calcLine() {
   y2 = (- x2 * a + c) / b;
 }
 
+/**
+ * Searches for solution using a brute-force method.
+ * Not elegant but easy to implement.
+ */
 function searchSolutions() {
   sol = [];
   for (let x0 = GRID.xMin; x0 <= GRID.xMax; x0++) {
@@ -99,6 +119,9 @@ function searchSolutions() {
   }
 }
 
+/**
+ * Draws the line defined by the Diophantine equation.
+ */
 function drawLine() {
   stroke(fgColor);
   strokeWeight(2);
@@ -108,6 +131,10 @@ function drawLine() {
   line(p1.x, p1.y, p2.x, p2.y);
 }
 
+/**
+ * Draws the integer solutions as dots in the accent color.\
+ * Their value is indicated alongside.
+ */
 function drawSolutions() {
   sol.forEach(p => {
     stroke(accentColor);
@@ -124,6 +151,9 @@ function drawSolutions() {
   });
 }
 
+/**
+ * Draws the Cartesian axes.
+ */
 function drawAxis() {
   stroke(ht1Color);
   strokeWeight(1);
@@ -139,6 +169,10 @@ function drawAxis() {
   line(p1.x, p1.y, p2.x, p2.y);
 }
 
+/**
+ * Draws the Cartesian grid as dots.\
+ * The amount of dots is determined by the scale (or level of zoom).
+ */
 function drawGrid() {
   stroke(ht2Color);
   strokeWeight(2);
@@ -153,6 +187,9 @@ function drawGrid() {
   }
 }
 
+/**
+ * Draws the Diophantine equation formula in the top-left corner of the canvas.
+ */
 function drawFormula() {
   fill(fgColor)
     .strokeWeight(0)
