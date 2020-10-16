@@ -7,7 +7,9 @@ It is a interactive visualization and geometric interpretation of the _**Diophan
 The value of the _coefficients_ <img src="https://render.githubusercontent.com/render/math?math=a">, <img src="https://render.githubusercontent.com/render/math?math=b"> and <img src="https://render.githubusercontent.com/render/math?math=c"> can be changed by the user.
 
 The _line_ corresponding to <img src="https://render.githubusercontent.com/render/math?math=ax+by=c"> has equation
+
 <img src="https://render.githubusercontent.com/render/math?math=y = - \dfrac{a}{b} + \dfrac{c}{b}">
+
 and it's represented on the Cartesian plane.
 
 _**Integer solutions**_ to the Diophantine equation are represented as _red dots_ on said line.
