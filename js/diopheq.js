@@ -147,7 +147,7 @@ function drawSolutions() {
     strokeWeight(0);
 
     textSize(14);
-    text('(' + p.x + ', ' + p.y + ')', sp.x + 10, sp.y - 9);
+    text('(' + p.x + ', ' + p.y + ')', sp.x + 10, sp.y - 9 * (a * b > 0 ? 1 : -1));
   });
 }
 
